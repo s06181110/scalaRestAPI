@@ -1,19 +1,14 @@
-# intern2021_Summer_EnomotoYoshiki
+# scalaRestAPI
 
-* インターン課題内容
+* API
   * 投稿一覧
   * 新規投稿作成
   * 投稿へのコメント一覧
   * 投稿へのコメント作成
 
-## エラーについて
-[check_result.txt](https://github.com/f81/intern2021_Summer_EnomotoYoshiki/blob/master/check_result.txt)は最初のバージョンです。エラー内容が１つだけ出力されます。
-
-[check_result_multiple_error.txt](https://github.com/f81/intern2021_Summer_EnomotoYoshiki/blob/master/check_result_multiple_error.txt)が現在のバージョンです。該当するエラー内容が全て出力されます。
-
 ## launch
 ```bash
-$ cd fringe81-intern
+$ cd api
 $ sbt
 $ run
 ```
