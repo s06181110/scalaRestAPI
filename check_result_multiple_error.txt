@@ -1,0 +1,86 @@
+==== 正常パターンチェック ===
+
+==== GET /posts リクエストチェック ===
+レスポンスの詳細 :  {
+  "posts" : [ {
+    "id" : "9459511b-538c-431f-b0a6-ad03d6622f9b",
+    "user_id" : "11111111-1111-1111-1111-111111111111",
+    "text" : "have a good night!",
+    "parent_post_id" : "2d4b634d-0549-4288-96ad-98ae2a9b3edf",
+    "comment_count" : 0,
+    "posted_at" : "2019-06-25 11:09:39.182"
+  }, {
+    "id" : "2d4b634d-0549-4288-96ad-98ae2a9b3edf",
+    "user_id" : "11111111-1111-1111-1111-111111111111",
+    "text" : "have a good night!",
+    "comment_count" : 1,
+    "posted_at" : "2019-06-25 11:09:39.145"
+  }, {
+    "id" : "1d994c35-2e37-4295-ab5f-87dc9ab54e18",
+    "user_id" : "11111111-1111-1111-1111-111111111111",
+    "text" : "a",
+    "comment_count" : 0,
+    "posted_at" : "2019-06-25 11:04:54.191"
+  }, {
+    "id" : "5cfd828d-3c65-46f6-a00d-2448206e175f",
+    "user_id" : "11111111-1111-1111-1111-111111111111",
+    "text" : "have a good night!",
+    "parent_post_id" : "704cdeb2-c8f0-4237-820c-ae6dc03eff13",
+    "comment_count" : 0,
+    "posted_at" : "2019-06-25 11:00:21.997"
+  }, {
+    "id" : "704cdeb2-c8f0-4237-820c-ae6dc03eff13",
+    "user_id" : "11111111-1111-1111-1111-111111111111",
+    "text" : "have a good night!",
+    "comment_count" : 1,
+    "posted_at" : "2019-06-25 11:00:21.937"
+  } ]
+}
+成功
+
+==== GET /posts/:post_id/comments リクエストチェック ===
+レスポンスの詳細 :  {
+  "comments" : [ ]
+}
+成功
+
+==== POST /posts/create リクエストチェック ===
+レスポンスの詳細 :  {"result":"OK"}
+成功
+
+==== POST /posts/:post_id/comments/create リクエストチェック ===
+レスポンスの詳細 :  {"result":"OK"}
+成功
+
+==== 非正常パターンのチェック ===
+
+==== POST /posts/create テキストの長さが0 ===
+レスポンスの詳細 :  {"result":"NG","message":["comment length must have 1 ~ 100"]}
+成功
+
+==== POST /posts/create テキストの長さが101 ===
+レスポンスの詳細 :  {"result":"NG","message":["comment length must have 1 ~ 100"]}
+成功
+
+==== POST /posts/create 存在しないuser_idを指定 ===
+レスポンスの詳細 :  {"result":"NG","message":["user is not exist"]}
+成功
+
+==== POST /posts/:post_id/comments/create テキストの長さが0 ===
+レスポンスの詳細 :  {"result":"NG","message":["comment length must have 1 ~ 100"]}
+成功
+
+==== POST /posts/:post_id/comments/create テキストの長さが101 ===
+レスポンスの詳細 :  {"result":"NG","message":["comment length must have 1 ~ 100"]}
+成功
+
+==== POST /posts/:post_id/comments/create 存在しないuser_idを指定 ===
+レスポンスの詳細 :  {"result":"NG","message":["user is not exist"]}
+成功
+
+==== POST /posts/:post_id/comments/create 存在しないpost_idを指定 ===
+レスポンスの詳細 :  {"result":"NG","message":["illegal parent post ID"]}
+成功
+
+チェックをパスした数: 11/11
+全てのチェックに成功しました.

@@ -1,0 +1,54 @@
+==== 正常パターンチェック ===
+
+==== GET /posts リクエストチェック ===
+レスポンスの詳細 :  {
+  "posts" : [ ]
+}
+成功
+
+==== GET /posts/:post_id/comments リクエストチェック ===
+レスポンスの詳細 :  {
+  "comments" : [ ]
+}
+成功
+
+==== POST /posts/create リクエストチェック ===
+レスポンスの詳細 :  {"result":"OK"}
+成功
+
+==== POST /posts/:post_id/comments/create リクエストチェック ===
+レスポンスの詳細 :  {"result":"OK"}
+成功
+
+==== 非正常パターンのチェック ===
+
+==== POST /posts/create テキストの長さが0 ===
+レスポンスの詳細 :  {"result":"NG","message":"comment length must have 1 ~ 100"}
+成功
+
+==== POST /posts/create テキストの長さが101 ===
+レスポンスの詳細 :  {"result":"NG","message":"comment length must have 1 ~ 100"}
+成功
+
+==== POST /posts/create 存在しないuser_idを指定 ===
+レスポンスの詳細 :  {"result":"NG","message":"user is not exist"}
+成功
+
+==== POST /posts/:post_id/comments/create テキストの長さが0 ===
+レスポンスの詳細 :  {"result":"NG","message":"comment length must have 1 ~ 100"}
+成功
+
+==== POST /posts/:post_id/comments/create テキストの長さが101 ===
+レスポンスの詳細 :  {"result":"NG","message":"comment length must have 1 ~ 100"}
+成功
+
+==== POST /posts/:post_id/comments/create 存在しないuser_idを指定 ===
+レスポンスの詳細 :  {"result":"NG","message":"user is not exist"}
+成功
+
+==== POST /posts/:post_id/comments/create 存在しないpost_idを指定 ===
+レスポンスの詳細 :  {"result":"NG","message":"illegal parent post ID"}
+成功
+
+チェックをパスした数: 11/11
+全てのチェックに成功しました.
